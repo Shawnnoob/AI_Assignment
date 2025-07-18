@@ -27,3 +27,4 @@ normalized_data = scaler.fit_transform(df)
 # Create a new Data Frame
 normalized_df = pd.DataFrame(normalized_data, columns=df.columns)
 
+print(normalized_df)
