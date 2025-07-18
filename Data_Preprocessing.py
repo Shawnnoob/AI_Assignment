@@ -6,4 +6,9 @@ df = pd.read_csv('AI_Assignment/input/winequality-white.csv')
 
 # ------------------------------------------------ Remove duplicate ------------------------------------------------
 
-print("Duplicate rows:", df.duplicated().sum()) # Check how many duplicate rows exist
+# drop the duplicate row
+df = df.drop_duplicates() 
+
+# ------------------------------------------------ Handle Missing Value ------------------------------------------------
+
+print(df.isnull().sum())
