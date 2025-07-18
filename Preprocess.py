@@ -6,7 +6,7 @@ import seaborn as sns # Data Visualization
 pd.set_option('display.max_columns', None)
 #pd.set_option('display.max_rows', None)
 
-ori_df = pd.read_csv("input/winequality-white.csv", delimiter=';')
+ori_df =pd.read_csv("AI_Assignment/input/winequality-white.csv", delimiter=';')
 df = ori_df.copy()
 # Rename column names
 df.rename(columns = {"fixed acidity": "fixed_acidity", "volatile acidity": "volatile_acidity",
