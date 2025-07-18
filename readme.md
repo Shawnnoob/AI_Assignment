@@ -69,4 +69,18 @@ min       2.720000     0.220000     8.000000     3.000000
 max       3.820000     1.080000    14.200000     9.000000  
 ```
 
+```
+quality
+3      20
+4     163
+5    1457
+6    2198
+7     880
+8     175
+9       5
+Name: quality, dtype: int64  
+```
+
+There the quality values range from 3 to 9. There are significantly more normal wines than bad / good wines.
+
 ### Data Cleaning
