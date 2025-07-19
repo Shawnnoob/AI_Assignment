@@ -3,8 +3,6 @@ from sklearn.preprocessing import MinMaxScaler
 
 # Load the dataset
 df = pd.read_csv('AI_Assignment/input/winequality-white.csv', sep=';', na_values=['null', 'Null', 'None', 'none', ' '])
-# drop the quality attributes, because it is a target score
-df = df.drop("quality", axis = 1)
 
 # ------------------------------------------------ Remove duplicate ------------------------------------------------
 
@@ -22,9 +20,13 @@ df.dropna(inplace=True)
 scaler = MinMaxScaler()
 
 # Apply scaler to df
-normalized_data = scaler.fit_transform(df)
+preprocessing_data = scaler.fit_transform(df)
 
 # Create a new Data Frame
-normalized_df = pd.DataFrame(normalized_data, columns=df.columns)
+preprocessing_data = pd.DataFrame(preprocessing_data, columns=df.columns)
 
-print(normalized_df)
+# drop the quality attributes, because it is a target score
+preprocessing_data = preprocessing_data.drop("quality", axis = 1)
+
+print(preprocessing_data)
+print(df)
