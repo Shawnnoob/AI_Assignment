@@ -3,6 +3,11 @@ from sklearn.preprocessing import MinMaxScaler
 
 # Load the dataset
 df = pd.read_csv('AI_Assignment/input/winequality-white.csv', sep=';', na_values=['null', 'Null', 'None', 'none', ' '])
+# Rename column names
+df.rename(columns = {"fixed acidity": "fixed_acidity", "volatile acidity": "volatile_acidity",
+                     "citric acid": "citric_acid", "residual sugar": "residual_sugar",
+                     "chlorides": "chlorides", "free sulfur dioxide": "free_sulfur_dioxide",
+                     "total sulfur dioxide": "total_sulfur_dioxide"}, inplace = True)
 
 # ------------------------------------------------ Remove duplicate ------------------------------------------------
 
