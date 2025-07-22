@@ -4,7 +4,7 @@ from sklearn.preprocessing import MinMaxScaler
 pd.set_option('display.max_columns', None)
 
 # Load the dataset
-df = pd.read_csv('../input/winequality-white.csv', sep=';', na_values=['null', 'Null', 'None', 'none', ' '])
+df = pd.read_csv('AI_Assignment/input/winequality-white.csv', sep=';', na_values=['null', 'Null', 'None', 'none', ' '])
 df.rename(columns = {"fixed acidity": "fixed_acidity", "volatile acidity": "volatile_acidity",
                      "citric acid": "citric_acid", "residual sugar": "residual_sugar",
                      "chlorides": "chlorides", "free sulfur dioxide": "free_sulfur_dioxide",
@@ -21,7 +21,7 @@ df = df.drop_duplicates()
 df.dropna(inplace=True)
 
 # Save a copy of clean dataset for backup and data exploration purpose
-df.to_csv("../input/clean_df.csv", index=False)
+df.to_csv("AI_Assignment/input/clean_df.csv", index=False)
 
 # ------------------------------------------ Normalized data --------------------------------
 
@@ -33,5 +33,6 @@ normalized_data = scaler.fit_transform(df)
 
 # Create a new Data Frame
 normalized_df = pd.DataFrame(normalized_data, columns=df.columns)
+
 #print(normalized_df)
-normalized_df.to_csv("../input/normalized_df.csv", index=False)
+normalized_df.to_csv("AI_Assignment/input/normalized_df.csv", index=False)
