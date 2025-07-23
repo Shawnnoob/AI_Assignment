@@ -13,8 +13,6 @@ meanshift.fit(normalized_dt)
 # numbering each cluster
 labels = meanshift.labels_
 
-print(labels[109:324])
-
 # evaluate the score of the clustering
 score = silhouette_score(normalized_dt, labels)
 print(f'Silhouette Score: {score:.4f}')
