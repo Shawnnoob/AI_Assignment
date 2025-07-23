@@ -31,7 +31,7 @@ scaler = MinMaxScaler()
 # Apply scaler to df
 normalized_data = scaler.fit_transform(df)
 
-# Create a new Data Frame
+# Create a new normalized Data Frame
 normalized_df = pd.DataFrame(normalized_data, columns=df.columns)
 #print(normalized_df)
-normalized_df.to_csv("../input/normalized_df.csv", index=False)
+normalized_df.to_csv("../input/normalized_df.csv", index=False) # Save normalized data

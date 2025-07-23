@@ -86,6 +86,6 @@ There the quality values range from 3 to 9. There are significantly more normal 
 ![Correlation Matrix](/graphs/Correlation_Matrix.png)
 
 The correlation matrix shows that there exists a strong positive correlation between density and residual sugar.  
-While there exists a strong negative correlation between density and alcohol.  
+There also exists a strong negative correlation between density and alcohol.  
 
 ### Data Cleaning
