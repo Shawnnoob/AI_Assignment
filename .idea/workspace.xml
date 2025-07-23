@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a76bbfc5-7fe3-4bd3-901e-9e26a1581a32" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/Data_Exploration.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Data_Exploration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/Data_Preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Data_Preprocessing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Other_info/packages.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Other_info/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Other_info/winequality.names" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +22,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
