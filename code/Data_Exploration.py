@@ -5,12 +5,16 @@ import seaborn as sns # Data Visualization
 pd.set_option('display.max_columns', None)
 #pd.set_option('display.max_rows', None)
 
-ori_df =pd.read_csv("../input/clean_df.csv", delimiter=',')
+ori_df = pd.read_csv("../input/clean_df.csv", delimiter=',')
 df = ori_df.copy()
+df2 = pd.read_csv("../input/normalized_df.csv", delimiter=',')
 
 # Display dataframe info
 df.info()
 print(df.describe())
+
+df2.info()
+print(df2.describe())
 
 fig, axes = plt.subplots(1, 2, figsize = (30, 10)) # 1st plot
 sns.histplot(ax = axes[0], x = df["fixed_acidity"],
@@ -55,7 +59,7 @@ sns.histplot(ax = axes[1], x = df["chlorides"],
 plt.savefig("../graphs/dist_ResidualSugar_Chlorides.png", dpi=300) # Saves 3rd plot as png
 
 # Correlation Heatmap
-corr_matrix = df.corr(numeric_only=True)
+corr_matrix = df2.corr(numeric_only=True)
 plt.figure(figsize=(15, 15))
 sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt=".2f", linewidths=0.5).set(title = "Correlation Matrix")
 plt.savefig("../graphs/Correlation_Matrix.png", dpi=300)

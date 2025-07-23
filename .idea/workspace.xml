@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a76bbfc5-7fe3-4bd3-901e-9e26a1581a32" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/code/Data_Preprocessing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/csv-editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-editor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data_Preprocessing.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Data_Exploration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphs/Correlation_Matrix.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/Correlation_Matrix.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphs/dist_CitricAcid_Alcohol.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/dist_CitricAcid_Alcohol.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphs/dist_FixedAcidity_VolatileAcidity.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/dist_FixedAcidity_VolatileAcidity.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphs/dist_ResidualSugar_Chlorides.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/dist_ResidualSugar_Chlorides.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Other_info/packages.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Other_info/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Other_info/winequality.names" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +22,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -52,24 +50,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.Data_Exploration (1).executor": "Run",
-    "Python.Data_Preprocessing (1).executor": "Run",
-    "Python.Data_Preprocessing.executor": "Run",
-    "Python.Preprocess.executor": "Run",
-    "Python.Preprocessing.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.DBSCAN.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Data_Exploration (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.Data_Preprocessing (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.Data_Preprocessing.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Preprocess.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Preprocessing.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Shawn&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Public\AI_Assignment\code" />
       <recent name="C:\Users\Public\AI_Assignment\input" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Data_Exploration (1)">
+  <component name="RunManager" selected="Python.DBSCAN">
+    <configuration name="DBSCAN" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="AI_Assignment" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/code" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/code/DBSCAN.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Data_Exploration (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AI_Assignment" />
       <option name="ENV_FILES" value="" />
@@ -158,35 +179,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Preprocessing" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="AI_Assignment" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Preprocessing.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.DBSCAN" />
         <item itemvalue="Python.Data_Exploration (1)" />
         <item itemvalue="Python.Data_Preprocessing (1)" />
         <item itemvalue="Python.Data_Preprocessing" />
         <item itemvalue="Python.Data_Exploration" />
-        <item itemvalue="Python.Preprocessing" />
       </list>
     </recent_temporary>
   </component>
