@@ -1,12 +1,13 @@
 import pandas as pd
+import numpy as np
 from xgboost import XGBClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix, classification_report
 
-X_train = pd.read_csv("../input/X_train.csv", delimiter=',')
-X_test = pd.read_csv("../input/X_test.csv", delimiter=',')
-y_train = pd.read_csv("../input/y_train.csv", delimiter=',')
-y_test = pd.read_csv("../input/y_test.csv", delimiter=',')
+X_train = pd.read_csv("AI_Assignment/input/X_train.csv", delimiter=',')
+X_test = pd.read_csv("AI_Assignment/input/X_test.csv", delimiter=',')
+y_train = pd.read_csv("AI_Assignment/input/y_train.csv", delimiter=',')
+y_test = pd.read_csv("AI_Assignment/input/y_test.csv", delimiter=',')
 
 # Split training data further into training + validation sets
 X_train_sub, X_valid, y_train_sub, y_valid = train_test_split(

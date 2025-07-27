@@ -25,7 +25,7 @@ df.rename(columns = {"fixed acidity": "Fixed_Acidity", "volatile acidity": "Vola
 def map_quality_label(q):
     if q <= 4:
         return 'Low' # if quality is smaller than 4 is low quality
-    elif q <= 7:
+    elif q <= 6:
         return 'Normal'# if quality is small or equal than 7 is normal quality
     else:
         return 'High'# if quality is larger than 7 is high quality
@@ -117,7 +117,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 sm = SMOTE(random_state=42)
 X_train_balanced, y_train_balanced = sm.fit_resample(X_train, y_train)
 
-X_train.to_csv("AI_Assignment/input/X_train.csv", index=False)
+X_train_balanced.to_csv("AI_Assignment/input/X_train.csv", index=False)
 X_test.to_csv("AI_Assignment/input/X_test.csv", index=False)
-y_train.to_csv("AI_Assignment/input/y_train.csv", index=False)
+y_train_balanced.to_csv("AI_Assignment/input/y_train.csv", index=False)
 y_test.to_csv("AI_Assignment/input/y_test.csv", index=False)
