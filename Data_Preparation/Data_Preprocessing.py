@@ -55,7 +55,7 @@ df["Sugar_Density"] = df["Residual_Sugar"] * df["density"]
 
 df = df.drop(['quality', 'Residual_Sugar', 'density'], axis = 1)
 
-df.to_csv("AI_Assignment/input/mix_df.csv", index = False)
+df.to_csv("AI_Assignment/input/complete_df.csv", index = False)
 
 
 
