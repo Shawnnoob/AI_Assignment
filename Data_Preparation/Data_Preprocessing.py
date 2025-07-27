@@ -64,7 +64,6 @@ pca_df = pd.DataFrame(data=pca_result, columns=['PC1', 'PC2'])
 
 # --------------------------------------- Mixed the Attribute -----------------------------------------
 
-
 # Explained variance ratio
 explained_variance = pca.explained_variance_ratio_
 print(pca.components_)
