@@ -48,7 +48,7 @@ df.to_csv("AI_Assignment/input/clean_df.csv", index = False)
 
 
 
-# --------------------------------------- Mixed the Attribute ---------------------------------------
+# --------------------------------------- Mixed the Attribute -----------------------------------------
 
 # since the Residual_Sugar and density have the high correlation, so i mixed it
 df["Sugar_Density"] = df["Residual_Sugar"] * df["density"]
