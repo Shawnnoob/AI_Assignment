@@ -36,7 +36,6 @@ df['Quality'] = df['quality'].apply(map_quality_label)
 quality_mapping = {'Low': 0, 'Normal': 1, 'High': 2}
 df['Quality'] = df['Quality'].map(quality_mapping)
 
-
 # --------------------------------------- Remove duplicate and Missing Value ---------------------------------------
 
 # drop the duplicate row
