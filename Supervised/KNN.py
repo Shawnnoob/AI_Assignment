@@ -9,7 +9,7 @@ y_train = pd.read_csv("AI_Assignment/input/y_train.csv").values.ravel()  # Flatt
 y_test = pd.read_csv("AI_Assignment/input/y_test.csv").values.ravel()
 
 # Initialize and train the KNN model
-knn = KNeighborsClassifier(n_neighbors=5)  # You can change k here (e.g. 3, 5, 7)
+knn = KNeighborsClassifier(n_neighbors=10)  # You can change k here (e.g. 3, 5, 7)
 knn.fit(X_train, y_train)
 
 # Predict the test set

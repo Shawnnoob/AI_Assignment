@@ -114,10 +114,10 @@ y = df["Quality"].copy()
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 #oversampling with balancing the data
-sm = SMOTE(random_state=42)
-X_train_balanced, y_train_balanced = sm.fit_resample(X_train, y_train)
+#sm = SMOTE(random_state=42)
+#X_train_balanced, y_train_balanced = sm.fit_resample(X_train, y_train)
 
-X_train_balanced.to_csv("AI_Assignment/input/X_train.csv", index=False)
+X_train.to_csv("AI_Assignment/input/X_train.csv", index=False)
 X_test.to_csv("AI_Assignment/input/X_test.csv", index=False)
-y_train_balanced.to_csv("AI_Assignment/input/y_train.csv", index=False)
+y_train.to_csv("AI_Assignment/input/y_train.csv", index=False)
 y_test.to_csv("AI_Assignment/input/y_test.csv", index=False)
