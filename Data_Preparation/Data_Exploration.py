@@ -1,79 +1,132 @@
 import pandas as pd
+import numpy as np
+import os
 import matplotlib.pyplot as plt  # Data Visualization
 import seaborn as sns # Data Visualization
+from scipy import stats
 
 pd.set_option('display.max_columns', None)
 #pd.set_option('display.max_rows', None)
 
-ori_df = pd.read_csv("../input/clean_df.csv", delimiter=',')
-df = ori_df.copy()
-df2 = pd.read_csv("../input/normalized_df.csv", delimiter=',')
+CSV_PATH = "../input/mushrooms.csv"
 
-# Display dataframe info
+# Load dataset
+df = pd.read_csv(CSV_PATH)
+print(f"Loaded {CSV_PATH} with shape {df.shape}\n")
+
+# Overview
+print(f"Overview of dataset:\n{df.describe()}\n")
 df.info()
-print(df.describe())
 
-df2.info()
-print(df2.describe())
 
-fig, axes = plt.subplots(1, 2, figsize = (30, 10)) # 1st plot
-sns.histplot(ax = axes[0], x = df["Fixed_Acidity"],
-             bins = 10,
-             kde = True,
-             cbar = True,
-             color = "#CA96EC").set(title = "Distribution of 'fixed_acidity'")
+# FEATURE VS CLASS PLOTS
+# Folder to save plots
+output_dir = "../graphs/feature_vs_class_plots"
+os.makedirs(output_dir, exist_ok=True)
 
-sns.histplot(ax = axes[1], x = df["Volatile_Acidity"],
-             bins = 10,
-             cbar = True,
-             kde = True,
-             color = "#A163CF").set(title = "Distribution of 'volatile_acidity'")
-plt.savefig("../graphs/dist_FixedAcidity_VolatileAcidity.png", dpi=300) # Saves 1st plot as png
+# Identify the target column (class)
+target_col = "class"  # Change if your label column is named differently
+if target_col not in df.columns:
+    raise ValueError(f"Target column '{target_col}' not found in dataset!")
 
-fig, axes = plt.subplots(1, 2, figsize=(30, 10)) # 2nd plot
-sns.histplot(ax = axes[0], x = df["Citric_Acid"],
-             bins = 10,
-             kde = True,
-             cbar = True,
-             color = "#29066B").set(title = "Distribution of 'citric_acid'")
+# Loop through all features except the target
+for col in df.columns:
+    if col == target_col:
+        continue
 
-sns.histplot(ax = axes[1], x = df["Alcohol"],
-             bins = 10,
-             kde = True,
-             cbar = True,
-             color = "#641811").set(title = "Distribution of 'alcohol'")
-plt.savefig("../graphs/dist_CitricAcid_Alcohol.png", dpi=300) # Saves 2nd plot as png
+    plt.figure(figsize=(8, 5))
 
-fig, axes = plt.subplots(1, 2, figsize=(30, 10)) # 3rd plot
-sns.histplot(ax = axes[0], x = df["Residual_Sugar"],
-             bins = 10,
-             kde = True,
-             cbar = True,
-             color = "#EB548C").set(title = "Distribution of 'residual_sugar'")
+    # Create cross-tab between feature and class
+    ct = pd.crosstab(df[col], df[target_col])
 
-sns.histplot(ax = axes[1], x = df["Chlorides"],
-             bins = 10,
-             kde = True,
-             cbar = True,
-             color = "#EC96E0").set(title = "Distribution of 'chlorides'")
-plt.savefig("../graphs/dist_ResidualSugar_Chlorides.png", dpi=300) # Saves 3rd plot as png
+    # Normalize by row to get percentages per feature value
+    ct_percent = ct.div(ct.sum(axis=1), axis=0) * 100
 
-# Correlation Heatmap
-df = df.drop(["Quality"], axis = 1)
-corr_matrix = df.corr(numeric_only=True)
-plt.figure(figsize=(15, 15))
-sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt=".2f", linewidths=0.5).set(title = "Correlation Matrix")
-plt.savefig("../graphs/Correlation_Matrix.png", dpi=300)
+    # Plot as side-by-side bar chart
+    ct_percent.plot(kind="bar", ax=plt.gca())
+    plt.title(f"Distribution of '{col}' compared to '{target_col}'")
+    plt.ylabel("Percentage (%)")
+    plt.xlabel(col)
+    plt.legend(title=target_col)
+    plt.tight_layout()
 
-# Show how the quality distribution of training set and test set
-y_train = pd.read_csv("../input/y_train.csv", delimiter=',')
-y_test = pd.read_csv("../input/y_test.csv", delimiter=',')
+    # Save plot
+    filename = f"{col}_vs_{target_col}.png"
+    plt.savefig(os.path.join(output_dir, filename))
+    plt.close()
 
-quality_counts = y_train['Quality'].value_counts().sort_index()
-quality_counts_named = quality_counts.rename(index={0: 'Low', 1: 'Normal', 2: 'High'})
-print("\nTrain Set Quality Distribution")
-print(quality_counts_named)
-quality_counts = y_test['Quality'].value_counts().sort_index()
-quality_counts_named = quality_counts.rename(index={0: 'Low', 1: 'Normal', 2: 'High'})
-print("\nTest Set Quality Distribution")
-print(quality_counts_named)
+print(f"Plots saved in: {output_dir}")
+
+# Convert categorical columns to category dtype
+for col in df.select_dtypes(include=["object"]).columns:
+    df[col] = df[col].astype('category')
+
+
+# CHI-SQUARE TEST
+# Function to perform the Chi-Square test for categorical variables
+def chi_square_test(x, y):
+    # Create a contingency table (cross-tabulation) for the two categorical variables
+    contingency_table = pd.crosstab(x, y)
+
+    # Perform Chi-Square test
+    chi2, p, dof, expected = stats.chi2_contingency(contingency_table)
+
+    # Return the test results: Chi-Square value, p-value, degrees of freedom, and expected frequencies
+    return chi2, p, dof, expected
+
+
+# # Perform Chi-Square test for all pairs of categorical features
+# results = {}
+# cat_cols = df.select_dtypes(include=["category"]).columns
+#
+# for col1 in cat_cols:
+#     for col2 in cat_cols:
+#         if col1 != col2:
+#             chi2, p, dof, expected = chi_square_test(df[col1], df[col2])
+#             results[f"{col1} vs {col2}"] = {
+#                 "chi2": chi2,
+#                 "p-value": p,
+#                 "degrees of freedom": dof,
+#                 "expected": expected
+#             }
+#
+# # Displaying results where p-value < 0.05 (indicating a significant relationship)
+# significant_results = {key: value for key, value in results.items() if value["p-value"] < 0.05}
+#
+# # Print significant results
+# for test, result in significant_results.items():
+#     print(f"\nTest: {test}")
+#     print(f"Chi-Square Value: {result['chi2']}")
+#     print(f"P-value: {result['p-value']}")
+#     print(f"Degrees of Freedom: {result['degrees of freedom']}")
+
+
+# CORRELATION MATRIX
+# Convert categorical columns to category dtype
+for col in df.select_dtypes(include=["object"]).columns:
+    df[col] = df[col].astype('category')
+
+# Function to calculate Cramér's V for categorical variables
+def cramers_v(x, y):
+    confusion_matrix = pd.crosstab(x, y)
+    chi2, p, dof, expected = stats.chi2_contingency(confusion_matrix)
+    return np.sqrt(chi2 / (confusion_matrix.sum().sum() * min(confusion_matrix.shape) - 1))
+
+# Calculate Cramér's V correlation for categorical features
+cat_cols = df.select_dtypes(include=["category"]).columns
+corr_matrix = pd.DataFrame(index=cat_cols, columns=cat_cols)
+
+# Fill the correlation matrix with Cramér's V values
+for col1 in cat_cols:
+    for col2 in cat_cols:
+        if col1 == col2:
+            corr_matrix.loc[col1, col2] = 1.0
+        elif pd.isna(corr_matrix.loc[col1, col2]):
+            corr_matrix.loc[col1, col2] = cramers_v(df[col1], df[col2])
+
+# Plot the correlation matrix
+plt.figure(figsize=(12, 8))
+sns.heatmap(corr_matrix.astype(float), annot=True, cmap="coolwarm", fmt=".2f", cbar=True)
+plt.title("Correlation Matrix of Features (Cramér's V)")
+plt.tight_layout()
+plt.savefig("../graphs/Correlation_Matrix.png")
