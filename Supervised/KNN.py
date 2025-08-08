@@ -18,4 +18,4 @@ y_pred = knn.predict(X_test)
 # Evaluate the results
 print("Accuracy:", accuracy_score(y_test, y_pred))
 print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
-print("Classification Report:\n", classification_report(y_test, y_pred, target_names=['Low', 'Normal', 'High']))
+print("Classification Report:\n", classification_report(y_test, y_pred, target_names=['edibl','poisonous']))
