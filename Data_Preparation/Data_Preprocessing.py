@@ -10,102 +10,81 @@ import matplotlib.pyplot as plt  # Data Visualization
 pd.set_option('display.max_columns', None)
 
 # Load the dataset
-df = pd.read_csv('../input/winequality-white.csv', sep = ';')
-
-# rename all the attributes
-df.rename(columns = {"fixed acidity": "Fixed_Acidity", "volatile acidity": "Volatile_Acidity",
-                     "citric acid": "Citric_Acid", "residual sugar": "Residual_Sugar",
-                     "chlorides": "Chlorides", "free sulfur dioxide": "Free_Sulfur_Dioxide",
-                     "total sulfur dioxide": "Total_Sulfur_Dioxide", "alcohol": "Alcohol", 
-                     "sulphates": "Sulphates", "density": "Density"}, inplace = True)
+df = pd.read_csv('AI_Assignment/input/mushrooms.csv', sep = ',')
 
 
-# --------------------------------------- Encode Quality ---------------------------------------
-def map_quality_label(q):
-    if q <= 4:
-        return 'Low' # if quality is smaller than 4 is low quality
-    elif q <= 7:
-        return 'Normal'# if quality is small or equal than 7 is normal quality
-    else:
-        return 'High'# if quality is larger than 7 is high quality
 
-df['Quality'] = df['quality'].apply(map_quality_label)
-
-# Manual label mapping
-quality_mapping = {'Low': 0, 'Normal': 1, 'High': 2}
-df['Quality'] = df['Quality'].map(quality_mapping)
-
-# --------------------------------------- Remove duplicate and Missing Value ---------------------------------------
+# --------------------------------------- Remove duplicate, Missing Value and delete the unrelated column ---------------------------------------
 # drop the duplicate row
 df = df.drop_duplicates()
+
+# Define all missing value placeholders
+missing_values = ["?", "null", "none", "None", "NONE"]
+
+# Replace them with NaN
+df.replace(missing_values, pd.NA, inplace=True)
 
 # drop the row with the missing value
 df.dropna(inplace = True)
 
+df = df.drop("veil-type", axis = 1)
+
+
+
+# --------------------------------------- Mapping ---------------------------------------
+# Mapping dictionary
+mapping = {
+    "class": {"p": 1, "e": 0},
+    "cap-shape": {"b": 0, "c": 1, "f": 2, "k": 3, "s": 4, "x": 5},
+    "cap-surface": {"f": 0, "g": 1, "s": 2, "y": 3},
+    "cap-color": {"b": 0, "c": 1, "e": 2, "g": 3, "n": 4, "p": 5, "r": 6, "u": 7, "w": 8, "y": 9},
+    "bruises": {"f": 0, "t": 1},
+    "odor": {"a": 0, "c": 1, "f": 2, "l": 3, "m": 4, "n": 5, "p": 6, "s": 7, "y": 8},
+    "gill-attachment": {"a": 0, "f": 1},
+    "gill-spacing": {"c": 0, "w": 1},
+    "gill-size": {"b": 0, "n": 1},
+    "gill-color": {"b": 0, "e": 1, "g": 2, "h": 3, "k": 4, "n": 5, "o": 6, "p": 7, "r": 8, "u": 9, "w": 10, "y": 11},
+    "stalk-shape": {"e": 0, "t": 1},
+    "stalk-root": {"b": 0, "c": 1, "e": 2, "r": 3},
+    "stalk-surface-above-ring": {"f": 0, "k": 1, "s": 2, "y": 3},
+    "stalk-surface-below-ring": {"f": 0, "k": 1, "s": 2, "y": 3},
+    "stalk-color-above-ring": {"b": 0, "c": 1, "e": 2, "g": 3, "n": 4, "o": 5, "p": 6, "w": 7, "y": 8},
+    "stalk-color-below-ring": {"b": 0, "c": 1, "e": 2, "g": 3, "n": 4, "o": 5, "p": 6, "w": 7, "y": 8},
+    "veil-color": {"n": 0, "o": 1, "w": 2, "y": 3},
+    "ring-number": {"n": 0, "o": 1, "t": 2},
+    "ring-type": {"e": 0, "f": 1, "l": 2, "n": 3, "p": 4},
+    "spore-print-color": {"b": 0, "h": 1, "k": 2, "n": 3, "o": 4, "r": 5, "u": 6, "w": 7, "y": 8},
+    "population": {"a": 0, "c": 1, "n": 2, "s": 3, "v": 4, "y": 5},
+    "habitat": {"d": 0, "g": 1, "l": 2, "m": 3, "p": 4, "u": 5, "w": 6}
+}
+
+# Apply mapping to all columns
+df_encoded = df.replace(mapping)
+
 # Save a copy of clean dataset for backup and data exploration purpose
-df.to_csv("../input/clean_df.csv", index = False)
-
-
-# --------------------------------------- Combine Features Using PCA --------------------------------
-# Select features to combine
-combine = df[["Density", "Residual_Sugar"]]
-
-# PCA
-pca = PCA(n_components=2)
-pca_result = pca.fit_transform(X_scaled)
-pca_df = pd.DataFrame(data=pca_result, columns=['PC1', 'PC2'])
-# --------------------------------------- Mixed the Attribute -----------------------------------------
-
-# Explained variance ratio
-explained_variance = pca.explained_variance_ratio_
-print(pca.components_)
-
-# Plot the PCA results
-plt.figure(figsize=(8, 6))
-plt.scatter(pca_df['PC1'], pca_df['PC2'], alpha=0.4)
-plt.title('PCA of Density and Residual Sugar')
-plt.xlabel(f'PC1 ({explained_variance[0]*100:.2f}% Variance)')
-plt.ylabel(f'PC2 ({explained_variance[1]*100:.2f}% Variance)')
-plt.grid(True)
-plt.tight_layout()
-plt.savefig("../graphs/PCA_Density_Sugar.png")
-
-# Manually apply PC1 formula (loadings are equal)
-pc1 = X_scaled @ np.array([0.7071, 0.7071])  # Dot product for PC1
-
-# Add to DataFrame
-df['sugar_density_pca'] = pc1
-
-# To check and compare result
-df.to_csv("../input/mix_df.csv", index = False)
-
+df_encoded.to_csv("AI_Assignment/input/Complete_df.csv", index = False)
 
 # --------------------------------------- Normalized data ---------------------------------------
-# drop uneccessary features
-Nor_df = df.drop(["Quality", "quality", "Density", "Residual_Sugar"], axis = 1)
-
 # Initialize and apply MinMaxScaler
-scaler = MinMaxScaler()
-normalized_data = scaler.fit_transform(Nor_df)
+scaler = MinMaxScaler(feature_range=(0, 1))
+normalized_data = scaler.fit_transform(df_encoded)
+
+# Round to 4 decimal places
+normalized_data = normalized_data.round(4)
 
 # Create a new normalized Data Frame
-normalized_df = pd.DataFrame(normalized_data, columns = Nor_df.columns)
+normalized_df = pd.DataFrame(normalized_data, columns = df_encoded.columns)
 
 #print(normalized_df)
-normalized_df.to_csv("../input/normalized_df.csv", index=False)
-
+normalized_df.to_csv("AI_Assignment/input/Normalized_df.csv", index=False)
 
 # --------------------------------------- Split into training and test set and balancing  ---------------------------------------
-X = normalized_df.copy()
-y = df["Quality"].copy()
+X = normalized_df.drop('class', axis = 1).copy()
+y = df_encoded["class"].copy()
 # split the dataset into training set = 80% and testing set = 20%
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
 
-#oversampling with balancing the data
-# sm = SMOTE(random_state=42)
-# X_train_balanced, y_train_balanced = sm.fit_resample(X_train, y_train)
-
-X_train.to_csv("../input/X_train.csv", index=False)
-X_test.to_csv("../input/X_test.csv", index=False)
-y_train.to_csv("../input/y_train.csv", index=False)
-y_test.to_csv("../input/y_test.csv", index=False)
+X_train.to_csv("AI_Assignment/input/X_train.csv", index=False)
+X_test.to_csv("AI_Assignment/input/X_test.csv", index=False)
+y_train.to_csv("AI_Assignment/input/y_train.csv", index=False)
+y_test.to_csv("AI_Assignment/input/y_test.csv", index=False)
