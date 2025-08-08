@@ -51,18 +51,11 @@ df.to_csv("../input/clean_df.csv", index = False)
 # Select features to combine
 combine = df[["Density", "Residual_Sugar"]]
 
-# Standardize
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(combine)
-
-<<<<<<< HEAD
 # PCA
 pca = PCA(n_components=2)
 pca_result = pca.fit_transform(X_scaled)
 pca_df = pd.DataFrame(data=pca_result, columns=['PC1', 'PC2'])
-=======
 # --------------------------------------- Mixed the Attribute -----------------------------------------
->>>>>>> baa2bd125609fa0a810e1fad3607cde97b65d9ff
 
 # Explained variance ratio
 explained_variance = pca.explained_variance_ratio_

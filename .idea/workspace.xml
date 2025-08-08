@@ -4,7 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a76bbfc5-7fe3-4bd3-901e-9e26a1581a32" name="Changes" comment="" />
+    <list default="true" id="a76bbfc5-7fe3-4bd3-901e-9e26a1581a32" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/csv-editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data_Preparation/Data_Exploration.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Preparation/Data_Exploration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data_Preparation/Data_Preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Preparation/Data_Preprocessing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Other_infor/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Other_infor/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Other_infor/winequality.names" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsupervised/DBSCAN.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsupervised/KMeans.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unsupervised/MeanShift.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/Correlation_Matrix.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/DBSCAN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/DBSCAN_tuned.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/Nearest_Neighbour.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/PCA_Density_Sugar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/dist_CitricAcid_Alcohol.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/dist_FixedAcidity_VolatileAcidity.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/dist_ResidualSugar_Chlorides.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/elbow_kmeans.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/kmeans_clusters.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/X_test.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/X_train.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/clean_df.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/mix_df.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/normalized_df.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/winequality-white.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/y_test.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/y_train.csv" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,28 +74,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.DBSCAN.executor": "Run",
-    "Python.Data_Exploration (1).executor": "Run",
-    "Python.Data_Exploration.executor": "Run",
-    "Python.Data_Preprocessing (1).executor": "Run",
-    "Python.Data_Preprocessing (2).executor": "Run",
-    "Python.Data_Preprocessing.executor": "Run",
-    "Python.Gradient_Boosting.executor": "Run",
-    "Python.Preprocess.executor": "Run",
-    "Python.Preprocessing.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Shawn"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.DBSCAN.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Data_Exploration (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.Data_Exploration.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Data_Preprocessing (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.Data_Preprocessing (2).executor&quot;: &quot;Run&quot;,
+    &quot;Python.Data_Preprocessing.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Gradient_Boosting.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Preprocess.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Preprocessing.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Public\AI_Assignment\code" />
       <recent name="C:\Users\Public\AI_Assignment\input" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Gradient_Boosting">
+  <component name="RunManager" selected="Python.Data_Exploration">
     <configuration name="DBSCAN" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AI_Assignment" />
       <option name="ENV_FILES" value="" />
@@ -180,9 +208,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Data_Exploration" />
         <item itemvalue="Python.Gradient_Boosting" />
         <item itemvalue="Python.Data_Preprocessing (2)" />
-        <item itemvalue="Python.Data_Exploration" />
         <item itemvalue="Python.DBSCAN" />
         <item itemvalue="Python.Data_Exploration (1)" />
       </list>
