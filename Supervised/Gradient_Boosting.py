@@ -39,7 +39,7 @@ print(importance_df.head(10))
 
 # Evaluation
 conf_matrix = confusion_matrix(y_test, predictions)
-class_report = classification_report(y_test, predictions, target_names=['Low', 'Normal', 'High'])
+class_report = classification_report(y_test, predictions, target_names=['edibl','poisonous'])
 
 print(conf_matrix)
 print(class_report)

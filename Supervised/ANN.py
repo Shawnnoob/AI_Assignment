@@ -9,7 +9,7 @@ y_train = pd.read_csv("AI_Assignment/input/y_train.csv").values.ravel()
 y_test = pd.read_csv("AI_Assignment/input/y_test.csv").values.ravel()
 
 # Define class labels
-target_names = ['Low', 'Normal', 'High']
+target_names = ['edibl','poisonous']
 
 # Initialize and train the ANN model
 mlp = MLPClassifier(hidden_layer_sizes=(100, 50),  # Two hidden layers with 100 and 50 neurons
