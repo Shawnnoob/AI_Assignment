@@ -8,11 +8,9 @@ from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt  # Data Visualization
 
 pd.set_option('display.max_columns', None)
-<<<<<<< HEAD
-path = "../"
-=======
+
 path = "AI_Assignment/"
->>>>>>> 8dddf1b284c1bd3d102b15f6dc68849b4dba1370
+
 
 # Load the dataset
 df = pd.read_csv(f'{path}input/mushrooms.csv', sep = ',')
@@ -31,13 +29,9 @@ df.replace(missing_values, pd.NA, inplace=True)
 
 # drop the row with the missing value
 df.dropna(inplace = True)
-
-<<<<<<< HEAD
-df = df.drop("veil-type", axis = 1)
 print(df.describe())
-=======
+
 df = df.drop(["veil-type", "cap-surface", "cap-shape", "gill-attachment", "gill-spacing", "stalk-shape", "stalk-root", "veil-color", "population"], axis = 1)
->>>>>>> 8dddf1b284c1bd3d102b15f6dc68849b4dba1370
 
 # Remove features
 # cap-surface, cap-shape, gill-attachment, gill-spacing, stalk-shape, stalk-root, veil-type, veil-color, population,
@@ -66,7 +60,7 @@ mapping = {
 df_encoded = df.replace(mapping)
 
 # Save a copy of clean dataset for backup and data exploration purpose
-<<<<<<< HEAD
+
 df_encoded.to_csv(f"{path}input/Complete_df.csv", index = False)
 
 # --------------------------------------- Normalized data ---------------------------------------
@@ -82,10 +76,8 @@ normalized_df = pd.DataFrame(normalized_data, columns = df_encoded.columns)
 
 #print(normalized_df)
 normalized_df.to_csv(f"{path}input/Normalized_df.csv", index=False)
-=======
 df_encoded.to_csv(f'{path}/input/Complete_df.csv', index = False)
 
->>>>>>> 8dddf1b284c1bd3d102b15f6dc68849b4dba1370
 
 # --------------------------------------- Split into training and test set and balancing  ---------------------------------------
 X = df_encoded.drop('class', axis = 1).copy()
@@ -93,14 +85,8 @@ y = df_encoded["class"].copy()
 # split the dataset into training set = 80% and testing set = 20%
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
 
-<<<<<<< HEAD
+
 X_train.to_csv(f"{path}input/X_train.csv", index=False)
 X_test.to_csv(f"{path}input/X_test.csv", index=False)
 y_train.to_csv(f"{path}input/y_train.csv", index=False)
 y_test.to_csv(f"{path}input/y_test.csv", index=False)
-=======
-X_train.to_csv(f'{path}/input/X_train.csv', index=False)
-X_test.to_csv(f'{path}/input/X_test.csv', index=False)
-y_train.to_csv(f'{path}/input/y_train.csv', index=False)
-y_test.to_csv(f'{path}/input/y_test.csv', index=False)
->>>>>>> 8dddf1b284c1bd3d102b15f6dc68849b4dba1370
