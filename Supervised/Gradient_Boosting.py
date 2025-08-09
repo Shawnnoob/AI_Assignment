@@ -1,8 +1,12 @@
 import pandas as pd
+import joblib
 import numpy as np
 from xgboost import XGBClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix, classification_report
+
+# Filepath
+path = "AI_Assignment/"
 
 X_train = pd.read_csv("AI_Assignment/input/X_train.csv", delimiter=',')
 X_test = pd.read_csv("AI_Assignment/input/X_test.csv", delimiter=',')
@@ -36,6 +40,9 @@ importance_df = pd.DataFrame({
     "importance":model.feature_importances_
 }).sort_values("importance", ascending=False)
 print(importance_df.head(10))
+
+# Save model
+joblib.dump(model, f'{path}Supervised/Gradient_Boosting.pkl')
 
 # Evaluation
 conf_matrix = confusion_matrix(y_test, predictions)

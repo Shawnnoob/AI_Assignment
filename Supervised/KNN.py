@@ -1,6 +1,10 @@
 import pandas as pd
+import joblib
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+
+# Filepath
+path = "AI_Assignment/"
 
 # Load the training and testing sets
 X_train = pd.read_csv("AI_Assignment/input/X_train.csv")
@@ -14,6 +18,8 @@ knn.fit(X_train, y_train)
 
 # Predict the test set
 y_pred = knn.predict(X_test)
+
+joblib.dump(knn, f'{path}/Supervised/K-NN.pkl')
 
 # Evaluate the results
 print("Accuracy:", accuracy_score(y_test, y_pred))

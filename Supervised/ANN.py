@@ -1,6 +1,10 @@
 import pandas as pd
+import joblib
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+
+# Filepath
+path = "AI_Assignment/"
 
 # Load datasets
 X_train = pd.read_csv("AI_Assignment/input/X_train.csv")
@@ -22,6 +26,9 @@ mlp.fit(X_train, y_train)
 
 # Predict on test set
 y_pred = mlp.predict(X_test)
+
+# Save model
+joblib.dump(mlp, f'{path}/Supervised/ANN.pkl')
 
 # Evaluate the performance
 print("\n--- Artificial Neural Network (ANN) ---")
