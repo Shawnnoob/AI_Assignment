@@ -57,7 +57,6 @@ df_encoded = df.replace(mapping)
 df_encoded.to_csv("AI_Assignment/input/Complete_df.csv", index = False)
 
 
-
 # --------------------------------------- Split into training and test set and balancing  ---------------------------------------
 X = df_encoded.drop('class', axis = 1).copy()
 y = df_encoded["class"].copy()
