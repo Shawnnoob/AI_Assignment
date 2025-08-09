@@ -1,17 +1,16 @@
 import pandas as pd
 import joblib
-import numpy as np
 from xgboost import XGBClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
 
 # Filepath
-path = "AI_Assignment/"
+path = "../"
 
-X_train = pd.read_csv("AI_Assignment/input/X_train.csv", delimiter=',')
-X_test = pd.read_csv("AI_Assignment/input/X_test.csv", delimiter=',')
-y_train = pd.read_csv("AI_Assignment/input/y_train.csv", delimiter=',')
-y_test = pd.read_csv("AI_Assignment/input/y_test.csv", delimiter=',')
+X_train = pd.read_csv(f"{path}input/X_train.csv", delimiter=',')
+X_test = pd.read_csv(f"{path}input/X_test.csv", delimiter=',')
+y_train = pd.read_csv(f"{path}input/y_train.csv", delimiter=',')
+y_test = pd.read_csv(f"{path}input/y_test.csv", delimiter=',')
 
 # Split training data further into training + validation sets
 X_train_sub, X_valid, y_train_sub, y_valid = train_test_split(
@@ -19,11 +18,9 @@ X_train_sub, X_valid, y_train_sub, y_valid = train_test_split(
 )
 
 model = XGBClassifier(
-    objective='multi:softmax', # For class labels
-    num_class=3, # 3 classes (low, normal, high)
-    learning_rate=0.05,
-    n_estimators=100, # Numbers of trees per round
-    max_depth=7, # Max depth of trees
+    objective='binary:logistic', # For binary classification
+    n_estimators=80, # Numbers of trees per round
+    max_depth=5, # Max depth of trees
     subsample=0.8, # % of rows sampled per tree
     random_state=42,
     early_stopping_rounds=10,
@@ -33,8 +30,9 @@ model.fit(X_train_sub, y_train_sub,
           eval_set=[(X_valid, y_valid)],
           verbose=True)
 
-predictions = model.predict(X_test)
+y_pred = model.predict(X_test)
 
+# Show the important features used in model
 importance_df = pd.DataFrame({
     "feature": X_train.columns,
     "importance":model.feature_importances_
@@ -45,8 +43,7 @@ print(importance_df.head(10))
 joblib.dump(model, f'{path}Supervised/Gradient_Boosting.pkl')
 
 # Evaluation
-conf_matrix = confusion_matrix(y_test, predictions)
-class_report = classification_report(y_test, predictions, target_names=['edibl','poisonous'])
-
-print(conf_matrix)
-print(class_report)
+print("\n--- Gradient Boosting (XGBoost) ---")
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+print("Classification Report:\n", classification_report(y_test, y_pred, target_names=['edible','poisonous']))

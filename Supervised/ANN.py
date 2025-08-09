@@ -4,16 +4,16 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 
 # Filepath
-path = "AI_Assignment/"
+path = "../"
 
 # Load datasets
-X_train = pd.read_csv("AI_Assignment/input/X_train.csv")
-X_test = pd.read_csv("AI_Assignment/input/X_test.csv")
-y_train = pd.read_csv("AI_Assignment/input/y_train.csv").values.ravel()
-y_test = pd.read_csv("AI_Assignment/input/y_test.csv").values.ravel()
+X_train = pd.read_csv(f"{path}input/X_train.csv")
+X_test = pd.read_csv(f"{path}input/X_test.csv")
+y_train = pd.read_csv(f"{path}input/y_train.csv").values.ravel()
+y_test = pd.read_csv(f"{path}input/y_test.csv").values.ravel()
 
 # Define class labels
-target_names = ['edibl','poisonous']
+target_names = ['edible','poisonous']
 
 # Initialize and train the ANN model
 mlp = MLPClassifier(hidden_layer_sizes=(100, 50),  # Two hidden layers with 100 and 50 neurons
@@ -28,7 +28,7 @@ mlp.fit(X_train, y_train)
 y_pred = mlp.predict(X_test)
 
 # Save model
-joblib.dump(mlp, f'{path}/Supervised/ANN.pkl')
+joblib.dump(mlp, f'{path}Supervised/ANN.pkl')
 
 # Evaluate the performance
 print("\n--- Artificial Neural Network (ANN) ---")
