@@ -1,15 +1,11 @@
 import pandas as pd
-import numpy as np
-from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
-from imblearn.over_sampling import SMOTE
-from sklearn.decomposition import PCA
-from sklearn.preprocessing import StandardScaler
-import matplotlib.pyplot as plt  # Data Visualization
+
 
 pd.set_option('display.max_columns', None)
+pd.set_option('future.no_silent_downcasting', True)
 
-path = "AI_Assignment/"
+path = "../"
 
 
 # Load the dataset
@@ -22,7 +18,7 @@ df = pd.read_csv(f'{path}input/mushrooms.csv', sep = ',')
 df = df.drop_duplicates()
 
 # Define all missing value placeholders
-missing_values = ["?", "null", "none", "None", "NONE"]
+missing_values = ["null", "none", "None", "NONE"]
 
 # Replace them with NaN
 df.replace(missing_values, pd.NA, inplace=True)

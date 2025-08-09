@@ -11,7 +11,7 @@
 | **gill-size**                | b = broad, n = narrow                                                                                                                |         |
 | **gill-color**               | k = black, n = brown, b = buff, h = chocolate, g = gray, r = green, o = orange, p = pink, u = purple, e = red, w = white, y = yellow |         |
 | **stalk-shape**              | e = enlarging, t = tapering                                                                                                          |         |
-| **stalk-root**               | b = bulbous, c = club, u = cup, e = equal, z = rhizomorphs, r = rooted                                                               |         |
+| **stalk-root**               | b = bulbous, c = club, u = cup, e = equal, z = rhizomorphs, r = rooted, ? = missing                                                  |         |
 | **stalk-surface-above-ring** | f = fibrous, s = smooth, k = silky, y = scaly                                                                                        |         |
 | **stalk-surface-below-ring** | same as above: f, s, k, y                                                                                                            |         |
 | **stalk-color-above-ring**   | n = brown, b = buff, c = cinnamon, g = gray, o = orange, p = pink, e = red, w = white, y = yellow                                    |         |

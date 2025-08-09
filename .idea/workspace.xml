@@ -8,6 +8,22 @@
       <change beforePath="$PROJECT_DIR$/.idea/csv-editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data_Preparation/Data_Preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Preparation/Data_Preprocessing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Other_infor/packages.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Other_infor/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Other_infor/value_mean" beforeDir="false" afterPath="$PROJECT_DIR$/Other_infor/value_mean" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Supervised/ANN.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised/ANN.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Supervised/ANN.py" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised/ANN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Supervised/Gradient_Boosting.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised/Gradient_Boosting.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Supervised/Gradient_Boosting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised/Gradient_Boosting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Supervised/K-NN.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised/K-NN.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Supervised/KNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised/KNN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Supervised/SVN.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/Complete_df.csv" beforeDir="false" afterPath="$PROJECT_DIR$/input/Complete_df.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/Normalized_df.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/X_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/input/X_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/X_train.csv" beforeDir="false" afterPath="$PROJECT_DIR$/input/X_train.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/clean_df.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/y_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/input/y_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/y_train.csv" beforeDir="false" afterPath="$PROJECT_DIR$/input/y_train.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,29 +66,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.DBSCAN.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Data_Exploration (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.Data_Exploration.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Data_Preprocessing (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.Data_Preprocessing (2).executor&quot;: &quot;Run&quot;,
-    &quot;Python.Data_Preprocessing.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Gradient_Boosting.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Preprocess.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Preprocessing.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.ANN.executor": "Run",
+    "Python.DBSCAN.executor": "Run",
+    "Python.Data_Exploration (1).executor": "Run",
+    "Python.Data_Exploration.executor": "Run",
+    "Python.Data_Preprocessing (1).executor": "Run",
+    "Python.Data_Preprocessing (2).executor": "Run",
+    "Python.Data_Preprocessing.executor": "Run",
+    "Python.Gradient_Boosting.executor": "Run",
+    "Python.KNN.executor": "Run",
+    "Python.Preprocess.executor": "Run",
+    "Python.Preprocessing.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Public\AI_Assignment\code" />
       <recent name="C:\Users\Public\AI_Assignment\input" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Data_Preprocessing (2)">
-    <configuration name="DBSCAN" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.KNN">
+    <configuration name="ANN" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AI_Assignment" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -81,33 +99,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/code" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Supervised" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/code/DBSCAN.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Data_Exploration (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="AI_Assignment" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/code" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/code/Data_Exploration.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Supervised/ANN.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -182,13 +178,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="KNN" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="AI_Assignment" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Supervised" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Supervised/KNN.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.KNN" />
+        <item itemvalue="Python.ANN" />
+        <item itemvalue="Python.Gradient_Boosting" />
         <item itemvalue="Python.Data_Preprocessing (2)" />
         <item itemvalue="Python.Data_Exploration" />
-        <item itemvalue="Python.Gradient_Boosting" />
-        <item itemvalue="Python.DBSCAN" />
-        <item itemvalue="Python.Data_Exploration (1)" />
       </list>
     </recent_temporary>
   </component>
