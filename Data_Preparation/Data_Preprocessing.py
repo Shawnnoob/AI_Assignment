@@ -62,22 +62,7 @@ df_encoded = df.replace(mapping)
 # Save a copy of clean dataset for backup and data exploration purpose
 
 df_encoded.to_csv(f"{path}input/Complete_df.csv", index = False)
-
-# --------------------------------------- Normalized data ---------------------------------------
-# Initialize and apply MinMaxScaler
-scaler = MinMaxScaler(feature_range=(0, 1))
-normalized_data = scaler.fit_transform(df_encoded)
-
-# Round to 4 decimal places
-normalized_data = normalized_data.round(4)
-
-# Create a new normalized Data Frame
-normalized_df = pd.DataFrame(normalized_data, columns = df_encoded.columns)
-
-#print(normalized_df)
-normalized_df.to_csv(f"{path}input/Normalized_df.csv", index=False)
-df_encoded.to_csv(f'{path}/input/Complete_df.csv', index = False)
-
+ 
 
 # --------------------------------------- Split into training and test set and balancing  ---------------------------------------
 X = df_encoded.drop('class', axis = 1).copy()
