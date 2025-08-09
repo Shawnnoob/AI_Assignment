@@ -8,9 +8,10 @@ from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt  # Data Visualization
 
 pd.set_option('display.max_columns', None)
+path = "AI_Assignment/"
 
 # Load the dataset
-df = pd.read_csv('AI_Assignment/input/mushrooms.csv', sep = ',')
+df = pd.read_csv(f'{path}input/mushrooms.csv', sep = ',')
 
 
 
@@ -54,7 +55,7 @@ mapping = {
 df_encoded = df.replace(mapping)
 
 # Save a copy of clean dataset for backup and data exploration purpose
-df_encoded.to_csv("AI_Assignment/input/Complete_df.csv", index = False)
+df_encoded.to_csv(f'{path}/input/Complete_df.csv', index = False)
 
 
 
@@ -64,7 +65,7 @@ y = df_encoded["class"].copy()
 # split the dataset into training set = 80% and testing set = 20%
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
 
-X_train.to_csv("AI_Assignment/input/X_train.csv", index=False)
-X_test.to_csv("AI_Assignment/input/X_test.csv", index=False)
-y_train.to_csv("AI_Assignment/input/y_train.csv", index=False)
-y_test.to_csv("AI_Assignment/input/y_test.csv", index=False)
+X_train.to_csv(f'{path}/input/X_train.csv', index=False)
+X_test.to_csv(f'{path}/input/X_test.csv', index=False)
+y_train.to_csv(f'{path}/input/y_train.csv', index=False)
+y_test.to_csv(f'{path}/input/y_test.csv', index=False)
