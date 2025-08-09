@@ -96,7 +96,11 @@ for attr, code_map in encodings.items():
 
 # show the data user select
 st.write("---")
-st.header("📦 Encoded input for model:")
+st.markdown(
+    "<h1 style='text-align: center; font-family: cursive;'>📦 Encoded input for model :</h1>",
+    unsafe_allow_html=True
+)
+# st.header("📦 Encoded input for model:")
 st.json(user_selections)
 st.write(f"**Selected Model:** {model_choice}")
 
