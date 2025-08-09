@@ -64,22 +64,22 @@ df_encoded = df.replace(mapping)
 # Save a copy of clean dataset for backup and data exploration purpose
 df_encoded.to_csv("AI_Assignment/input/Complete_df.csv", index = False)
 
-# --------------------------------------- Normalized data ---------------------------------------
-# Initialize and apply MinMaxScaler
-scaler = MinMaxScaler(feature_range=(0, 1))
-normalized_data = scaler.fit_transform(df_encoded)
+# # --------------------------------------- Normalized data ---------------------------------------
+# # Initialize and apply MinMaxScaler
+# scaler = MinMaxScaler(feature_range=(0, 1))
+# normalized_data = scaler.fit_transform(df_encoded)
 
-# Round to 4 decimal places
-normalized_data = normalized_data.round(4)
+# # Round to 4 decimal places
+# normalized_data = normalized_data.round(4)
 
-# Create a new normalized Data Frame
-normalized_df = pd.DataFrame(normalized_data, columns = df_encoded.columns)
+# # Create a new normalized Data Frame
+# normalized_df = pd.DataFrame(normalized_data, columns = df_encoded.columns)
 
-#print(normalized_df)
-normalized_df.to_csv("AI_Assignment/input/Normalized_df.csv", index=False)
+# #print(df_encoded)
+# normalized_df.to_csv("AI_Assignment/input/Normalized_df.csv", index=False)
 
 # --------------------------------------- Split into training and test set and balancing  ---------------------------------------
-X = normalized_df.drop('class', axis = 1).copy()
+X = df_encoded.drop('class', axis = 1).copy()
 y = df_encoded["class"].copy()
 # split the dataset into training set = 80% and testing set = 20%
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
