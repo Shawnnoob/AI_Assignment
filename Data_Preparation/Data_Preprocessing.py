@@ -27,7 +27,7 @@ df.replace(missing_values, pd.NA, inplace=True)
 # drop the row with the missing value
 df.dropna(inplace = True)
 
-df = df.drop("veil-type", axis = 1)
+df = df.drop(["veil-type", "cap-surface", "cap-shape", "gill-attachment", "gill-spacing", "stalk-shape", "stalk-root", "veil-color", "population"], axis = 1)
 
 
 
@@ -35,26 +35,18 @@ df = df.drop("veil-type", axis = 1)
 # Mapping dictionary
 mapping = {
     "class": {"p": 1, "e": 0},
-    "cap-shape": {"b": 0, "c": 1, "f": 2, "k": 3, "s": 4, "x": 5},
-    "cap-surface": {"f": 0, "g": 1, "s": 2, "y": 3},
     "cap-color": {"b": 0, "c": 1, "e": 2, "g": 3, "n": 4, "p": 5, "r": 6, "u": 7, "w": 8, "y": 9},
     "bruises": {"f": 0, "t": 1},
     "odor": {"a": 0, "c": 1, "f": 2, "l": 3, "m": 4, "n": 5, "p": 6, "s": 7, "y": 8},
-    "gill-attachment": {"a": 0, "f": 1},
-    "gill-spacing": {"c": 0, "w": 1},
     "gill-size": {"b": 0, "n": 1},
     "gill-color": {"b": 0, "e": 1, "g": 2, "h": 3, "k": 4, "n": 5, "o": 6, "p": 7, "r": 8, "u": 9, "w": 10, "y": 11},
-    "stalk-shape": {"e": 0, "t": 1},
-    "stalk-root": {"b": 0, "c": 1, "e": 2, "r": 3},
     "stalk-surface-above-ring": {"f": 0, "k": 1, "s": 2, "y": 3},
     "stalk-surface-below-ring": {"f": 0, "k": 1, "s": 2, "y": 3},
     "stalk-color-above-ring": {"b": 0, "c": 1, "e": 2, "g": 3, "n": 4, "o": 5, "p": 6, "w": 7, "y": 8},
     "stalk-color-below-ring": {"b": 0, "c": 1, "e": 2, "g": 3, "n": 4, "o": 5, "p": 6, "w": 7, "y": 8},
-    "veil-color": {"n": 0, "o": 1, "w": 2, "y": 3},
     "ring-number": {"n": 0, "o": 1, "t": 2},
     "ring-type": {"e": 0, "f": 1, "l": 2, "n": 3, "p": 4},
     "spore-print-color": {"b": 0, "h": 1, "k": 2, "n": 3, "o": 4, "r": 5, "u": 6, "w": 7, "y": 8},
-    "population": {"a": 0, "c": 1, "n": 2, "s": 3, "v": 4, "y": 5},
     "habitat": {"d": 0, "g": 1, "l": 2, "m": 3, "p": 4, "u": 5, "w": 6}
 }
 
@@ -64,19 +56,7 @@ df_encoded = df.replace(mapping)
 # Save a copy of clean dataset for backup and data exploration purpose
 df_encoded.to_csv("AI_Assignment/input/Complete_df.csv", index = False)
 
-# # --------------------------------------- Normalized data ---------------------------------------
-# # Initialize and apply MinMaxScaler
-# scaler = MinMaxScaler(feature_range=(0, 1))
-# normalized_data = scaler.fit_transform(df_encoded)
 
-# # Round to 4 decimal places
-# normalized_data = normalized_data.round(4)
-
-# # Create a new normalized Data Frame
-# normalized_df = pd.DataFrame(normalized_data, columns = df_encoded.columns)
-
-# #print(df_encoded)
-# normalized_df.to_csv("AI_Assignment/input/Normalized_df.csv", index=False)
 
 # --------------------------------------- Split into training and test set and balancing  ---------------------------------------
 X = df_encoded.drop('class', axis = 1).copy()
