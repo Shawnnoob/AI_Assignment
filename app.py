@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 
 # Filepath
-path = "AI_Assignment/"
+path = "/"
 
 # For encoding purpose
 encodings = {
@@ -61,9 +61,9 @@ st.markdown(
 )
 
 # Load models 
-knn_model = joblib.load(f'{path}/Supervised/K-NN.pkl')
-gb_model = joblib.load(f'{path}/Supervised/Gradient_Boosting.pkl')
-ann_model = joblib.load(f'{path}/Supervised/ANN.pkl')
+knn_model = joblib.load(f'{path}Supervised/K-NN.pkl')
+gb_model = joblib.load(f'{path}Supervised/Gradient_Boosting.pkl')
+ann_model = joblib.load(f'{path}Supervised/ANN.pkl')
 
 # Model selection
 model_choice = st.radio(
