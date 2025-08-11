@@ -4,7 +4,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 
 # Filepath
-path = "../"
+path = "AI_Assignment/"
 
 # Load the training and testing sets
 X_train = pd.read_csv(f"{path}input/X_train.csv")
