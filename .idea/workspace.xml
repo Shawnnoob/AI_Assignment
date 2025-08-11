@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a76bbfc5-7fe3-4bd3-901e-9e26a1581a32" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/csv-editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Other_infor/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Other_infor/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +69,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Public\AI_Assignment\" />
       <recent name="C:\Users\Public\AI_Assignment\code" />
       <recent name="C:\Users\Public\AI_Assignment\input" />
     </key>
