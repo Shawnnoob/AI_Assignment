@@ -17,7 +17,7 @@ X_train_sub, X_valid, y_train_sub, y_valid = train_test_split(
     X_train, y_train, test_size=0.2, random_state=42, stratify=y_train
 )
 
-model = XGBClassifier(
+xgb_model = XGBClassifier(
     objective='binary:logistic', # For binary classification
     n_estimators=80, # Numbers of trees per round
     max_depth=5, # Max depth of trees
@@ -26,21 +26,21 @@ model = XGBClassifier(
     early_stopping_rounds=10,
 )
 
-model.fit(X_train_sub, y_train_sub,
+xgb_model.fit(X_train_sub, y_train_sub,
           eval_set=[(X_valid, y_valid)],
           verbose=True)
 
-y_pred = model.predict(X_test)
+y_pred = xgb_model.predict(X_test)
 
 # Show the important features used in model
 importance_df = pd.DataFrame({
     "feature": X_train.columns,
-    "importance":model.feature_importances_
+    "importance":xgb_model.feature_importances_
 }).sort_values("importance", ascending=False)
 print(importance_df.head(10))
 
 # Save model
-joblib.dump(model, f'{path}Supervised/Gradient_Boosting.pkl')
+joblib.dump(xgb_model, f'{path}Supervised/Gradient_Boosting.pkl')
 
 # Evaluation
 print("\n--- Gradient Boosting (XGBoost) ---")
