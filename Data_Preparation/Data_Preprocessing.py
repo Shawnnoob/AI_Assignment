@@ -27,10 +27,8 @@ df.replace(missing_values, pd.NA, inplace=True)
 df.dropna(inplace = True)
 print(df.describe())
 
+# Remove Features
 df = df.drop(["veil-type", "cap-surface", "cap-shape", "gill-attachment", "gill-spacing", "stalk-shape", "stalk-root", "veil-color", "population"], axis = 1)
-
-# Remove features
-# cap-surface, cap-shape, gill-attachment, gill-spacing, stalk-shape, stalk-root, veil-type, veil-color, population,
 
 
 # --------------------------------------- Mapping ---------------------------------------
