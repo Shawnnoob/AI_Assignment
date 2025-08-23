@@ -1,5 +1,4 @@
 import pandas as pd
-import joblib
 import time
 import psutil, os
 from sklearn.neighbors import KNeighborsClassifier
@@ -31,8 +30,6 @@ y_pred = knn.predict(X_test)
 end = time.time()
 
 after = process.memory_info().rss
-
-joblib.dump(knn, f'{path}Supervised/K-NN.pkl')
 
 # Evaluate the results
 print("Accuracy:", accuracy_score(y_test, y_pred))

@@ -1,6 +1,5 @@
 import pandas as pd
 import time
-import joblib
 import psutil, os
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
@@ -39,9 +38,6 @@ y_pred = mlp.predict(X_test)
 end = time.time()
 
 after = process.memory_info().rss
-
-# Save model
-joblib.dump(mlp, f'{path}Supervised/ANN.pkl')
 
 # Evaluate the performance
 print("\n--- Artificial Neural Network (ANN) ---")
