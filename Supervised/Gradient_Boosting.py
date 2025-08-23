@@ -1,11 +1,13 @@
 import pandas as pd
 import joblib
+import time
+import psutil, os
 from xgboost import XGBClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
 
 # Filepath
-path = "../"
+path = "AI_Assignment/"
 
 X_train = pd.read_csv(f"{path}input/X_train.csv", delimiter=',')
 X_test = pd.read_csv(f"{path}input/X_test.csv", delimiter=',')
@@ -30,7 +32,18 @@ xgb_model.fit(X_train_sub, y_train_sub,
           eval_set=[(X_valid, y_valid)],
           verbose=True)
 
+process = psutil.Process(os.getpid())
+
+before = process.memory_info().rss  # in bytes
+
+#start time
+start = time.time()
+
 y_pred = xgb_model.predict(X_test)
+
+end = time.time()
+
+after = process.memory_info().rss
 
 # Show the important features used in model
 importance_df = pd.DataFrame({
@@ -47,3 +60,26 @@ print("\n--- Gradient Boosting (XGBoost) ---")
 print("Accuracy:", accuracy_score(y_test, y_pred))
 print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
 print("Classification Report:\n", classification_report(y_test, y_pred, target_names=['edible','poisonous']))
+
+print(f"Prediction time: {end - start:.4f} seconds")
+print(f"Memory Used in Prediction: {(after - before) / 1024**2:.4f} MB")
+
+
+
+# --- Gradient Boosting (XGBoost) ---
+# Accuracy: 1.0
+# Confusion Matrix:
+#  [[842   0]
+#  [  0 783]]
+# Classification Report:
+#                precision    recall  f1-score   support
+
+#       edible       1.00      1.00      1.00       842
+#    poisonous       1.00      1.00      1.00       783
+
+#     accuracy                           1.00      1625
+#    macro avg       1.00      1.00      1.00      1625
+# weighted avg       1.00      1.00      1.00      1625
+
+# Prediction time: 0.0118 seconds
+# Memory Used in Prediction: 0.0195 MB

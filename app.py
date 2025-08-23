@@ -61,24 +61,10 @@ st.markdown(
 )
 
 # Load models 
-knn_model = joblib.load(f'{path}Supervised/K-NN.pkl')
 gb_model = joblib.load(f'{path}Supervised/Gradient_Boosting.pkl')
-ann_model = joblib.load(f'{path}Supervised/ANN.pkl')
 
-# Model selection
-model_choice = st.radio(
-    "Choose a model for prediction:",
-    ("K-Nearest Neighbors (KNN)", "Gradient Boosting", "Artificial Neural Network (ANN)")
-)
+model = gb_model
 
-if model_choice == "K-Nearest Neighbors (KNN)":
-    model = knn_model
-elif model_choice == "Gradient Boosting":
-    model = gb_model
-elif model_choice == "Artificial Neural Network (ANN)":
-    model = ann_model
-else:
-    model = ["Unknown model"]
 
 # for user input 
 user_selections = {}
@@ -100,9 +86,6 @@ st.markdown(
     "<h1 style='text-align: center; font-family: cursive;'>📦 Encoded input for model :</h1>",
     unsafe_allow_html=True
 )
-# st.header("📦 Encoded input for model:")
-st.json(user_selections)
-st.write(f"**Selected Model:** {model_choice}")
 
 # Convert dictionary to a single-row DataFrame
 input_df = pd.DataFrame([user_selections])
