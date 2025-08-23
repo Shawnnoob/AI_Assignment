@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a76bbfc5-7fe3-4bd3-901e-9e26a1581a32" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Supervised/Gradient_Boosting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised/Gradient_Boosting.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,26 +48,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.ANN.executor": "Run",
-    "Python.DBSCAN.executor": "Run",
-    "Python.Data_Exploration (1).executor": "Run",
-    "Python.Data_Exploration.executor": "Run",
-    "Python.Data_Preprocessing (1).executor": "Run",
-    "Python.Data_Preprocessing (2).executor": "Run",
-    "Python.Data_Preprocessing.executor": "Run",
-    "Python.Decision_Trees.executor": "Run",
-    "Python.Gradient_Boosting.executor": "Run",
-    "Python.KNN.executor": "Run",
-    "Python.Preprocess.executor": "Run",
-    "Python.Preprocessing.executor": "Run",
-    "Python.Random_Forest.executor": "Run",
-    "Python.app.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.ANN.executor&quot;: &quot;Run&quot;,
+    &quot;Python.DBSCAN.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Data_Exploration (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.Data_Exploration.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Data_Preprocessing (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.Data_Preprocessing (2).executor&quot;: &quot;Run&quot;,
+    &quot;Python.Data_Preprocessing.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Decision_Trees.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Gradient_Boosting.executor&quot;: &quot;Run&quot;,
+    &quot;Python.KNN.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Preprocess.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Preprocessing.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Random_Forest.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Public\AI_Assignment\" />

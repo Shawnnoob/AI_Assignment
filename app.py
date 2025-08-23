@@ -82,10 +82,10 @@ for attr, code_map in encodings.items():
 
 # show the data user select
 st.write("---")
-st.markdown(
-    "<h1 style='text-align: center; font-family: cursive;'>📦 Encoded input for model :</h1>",
-    unsafe_allow_html=True
-)
+#st.markdown(
+#    "<h1 style='text-align: center; font-family: cursive;'>📦 Encoded input for model :</h1>",
+#    unsafe_allow_html=True
+#)
 
 # Convert dictionary to a single-row DataFrame
 input_df = pd.DataFrame([user_selections])
