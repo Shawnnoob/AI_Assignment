@@ -35,6 +35,7 @@ after = process.memory_info().rss
 # Save model
 joblib.dump(dt_model, f'{path}Supervised/Decision_Trees.pkl')
 
+# Decision Tree Model
 print("\n--- Decision Tree ---")
 print("Accuracy:", accuracy_score(y_test, y_pred))
 print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
@@ -49,6 +50,29 @@ plt.savefig(f"{path}graphs/model_results/decision_tree.png")
 
 print(f"Prediction time: {end - start:.4f} seconds")
 print(f"Memory Used in Prediction: {(after - before) / 1024**2:.4f} MB")
+
+
+# Overfitting visualization
+train_acc = []
+test_acc = []
+depth_range = range(1, 21)  # try tree depths from 1 to 20
+
+for depth in depth_range:
+    model = DecisionTreeClassifier(max_depth=depth, random_state=42)
+    model.fit(X_train, y_train)
+    train_acc.append(accuracy_score(y_train, model.predict(X_train)))
+    test_acc.append(accuracy_score(y_test, model.predict(X_test)))
+
+plt.figure(figsize=(8, 6))
+plt.plot(depth_range, train_acc, label="Training Accuracy", marker='o')
+plt.plot(depth_range, test_acc, label="Testing Accuracy", marker='o')
+plt.xlabel("Tree Depth")
+plt.ylabel("Accuracy")
+plt.title("Overfitting Visualization: Accuracy vs Tree Depth")
+plt.legend()
+plt.grid(True)
+plt.savefig(f"{path}graphs/overfitting/decision_tree_overfitting.png")
+plt.show()
 
 
 # --- Decision Tree ---

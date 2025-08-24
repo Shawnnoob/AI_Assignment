@@ -1,5 +1,5 @@
 import pandas as pd
-import joblib
+import matplotlib.pyplot as plt
 import time
 import psutil, os
 from xgboost import XGBClassifier
@@ -26,11 +26,12 @@ xgb_model = XGBClassifier(
     subsample=0.8, # % of rows sampled per tree
     random_state=42,
     early_stopping_rounds=10,
+    eval_metric="logloss",
 )
 
 xgb_model.fit(X_train_sub, y_train_sub,
-          eval_set=[(X_valid, y_valid)],
-          verbose=True)
+          eval_set=[(X_train_sub, y_train_sub), (X_valid, y_valid)],
+          verbose=False)
 
 process = psutil.Process(os.getpid())
 
@@ -61,7 +62,23 @@ print("Classification Report:\n", classification_report(y_test, y_pred, target_n
 print(f"Prediction time: {end - start:.4f} seconds")
 print(f"Memory Used in Prediction: {(after - before) / 1024**2:.4f} MB")
 
+# Get evaluation results
+results = xgb_model.evals_result()
 
+# Plot training vs validation logloss
+epochs = len(results['validation_0']['logloss'])
+x_axis = range(0, epochs)
+
+plt.figure(figsize=(8,6))
+plt.plot(x_axis, results['validation_0']['logloss'], label='Train')
+plt.plot(x_axis, results['validation_1']['logloss'], label='Validation')
+plt.xlabel('Boosting Rounds')
+plt.ylabel('Log Loss')
+plt.title('XGBoost Training vs Validation Loss')
+plt.legend()
+plt.grid(True)
+plt.savefig(f"{path}graphs/overfitting/gradient_boosting_overfitting.png")
+plt.show()
 
 # --- Gradient Boosting (XGBoost) ---
 # Accuracy: 1.0
