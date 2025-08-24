@@ -45,7 +45,7 @@ st.markdown(
 )
 
 # Load models 
-dt_model = joblib.load(f'{path}Supervised/Decision_Tree.pkl')
+dt_model = joblib.load(f'{path}Supervised/Decision_Trees.pkl')
 
 model = dt_model
 
