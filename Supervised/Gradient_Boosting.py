@@ -52,9 +52,6 @@ importance_df = pd.DataFrame({
 }).sort_values("importance", ascending=False)
 print(importance_df.head(10))
 
-# Save model
-joblib.dump(xgb_model, f'{path}Supervised/Gradient_Boosting.pkl')
-
 # Evaluation
 print("\n--- Gradient Boosting (XGBoost) ---")
 print("Accuracy:", accuracy_score(y_test, y_pred))

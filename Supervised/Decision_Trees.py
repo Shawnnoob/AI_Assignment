@@ -32,6 +32,9 @@ end = time.time()
 
 after = process.memory_info().rss
 
+# Save model
+joblib.dump(dt_model, f'{path}Supervised/Decision_Tree.pkl')
+
 print("\n--- Decision Tree ---")
 print("Accuracy:", accuracy_score(y_test, y_pred))
 print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
