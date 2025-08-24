@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 pd.set_option('display.max_columns', None)
 pd.set_option('future.no_silent_downcasting', True)
 
-path = "../"
+path = "AI_Assignment/"
 
 
 # Load the dataset
@@ -28,7 +28,7 @@ df.dropna(inplace = True)
 print(df.describe())
 
 # Remove Features
-df = df.drop(["veil-type", "cap-surface", "cap-shape", "gill-attachment", "gill-spacing", "stalk-shape", "stalk-root", "veil-color", "population"], axis = 1)
+df = df.drop(["veil-type", "cap-surface", "cap-shape", "gill-size", "gill-color", "stalk-surface-above-ring", "stalk-surface-below-ring", "ring-number", "gill-attachment", "gill-spacing", "stalk-shape", "stalk-root", "veil-color", "population"], axis = 1)
 
 
 # --------------------------------------- Mapping ---------------------------------------
@@ -38,13 +38,13 @@ mapping = {
     "cap-color": {"b": 0, "c": 1, "e": 2, "g": 3, "n": 4, "p": 5, "r": 6, "u": 7, "w": 8, "y": 9},
     "bruises": {"f": 0, "t": 1},
     "odor": {"a": 0, "c": 1, "f": 2, "l": 3, "m": 4, "n": 5, "p": 6, "s": 7, "y": 8},
-    "gill-size": {"b": 0, "n": 1},
-    "gill-color": {"b": 0, "e": 1, "g": 2, "h": 3, "k": 4, "n": 5, "o": 6, "p": 7, "r": 8, "u": 9, "w": 10, "y": 11},
-    "stalk-surface-above-ring": {"f": 0, "k": 1, "s": 2, "y": 3},
-    "stalk-surface-below-ring": {"f": 0, "k": 1, "s": 2, "y": 3},
+    # "gill-size": {"b": 0, "n": 1},
+    # "gill-color": {"b": 0, "e": 1, "g": 2, "h": 3, "k": 4, "n": 5, "o": 6, "p": 7, "r": 8, "u": 9, "w": 10, "y": 11},
+    # "stalk-surface-above-ring": {"f": 0, "k": 1, "s": 2, "y": 3},
+    # "stalk-surface-below-ring": {"f": 0, "k": 1, "s": 2, "y": 3},
     "stalk-color-above-ring": {"b": 0, "c": 1, "e": 2, "g": 3, "n": 4, "o": 5, "p": 6, "w": 7, "y": 8},
     "stalk-color-below-ring": {"b": 0, "c": 1, "e": 2, "g": 3, "n": 4, "o": 5, "p": 6, "w": 7, "y": 8},
-    "ring-number": {"n": 0, "o": 1, "t": 2},
+    # "ring-number": {"n": 0, "o": 1, "t": 2},
     "ring-type": {"e": 0, "f": 1, "l": 2, "n": 3, "p": 4},
     "spore-print-color": {"b": 0, "h": 1, "k": 2, "n": 3, "o": 4, "r": 5, "u": 6, "w": 7, "y": 8},
     "habitat": {"d": 0, "g": 1, "l": 2, "m": 3, "p": 4, "u": 5, "w": 6}

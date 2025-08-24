@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 
 # Filepath
-path = ""
+path = "AI_Assignment/"
 
 # For encoding purpose
 encodings = {
@@ -18,19 +18,6 @@ encodings = {
         "Almond": 0, "Creosote": 1, "Foul": 2, "Anise": 3,
         "Musty": 4, "None": 5, "Pungent": 6, "Spicy": 7, "Fishy": 8
     },
-    "gill-size": {
-        "Broad": 0, "Narrow": 1
-    },
-    "gill-color": {
-        "Buff": 0, "Red": 1, "Gray": 2, "Chocolate": 3, "Black": 4, "Brown": 5,
-        "Orange": 6, "Pink": 7, "Green": 8, "Purple": 9, "White": 10, "Yellow": 11
-    },
-    "stalk-surface-above-ring": {
-        "Fibrous": 0, "Silky": 1, "Smooth": 2, "Scaly": 3
-    },
-    "stalk-surface-below-ring": {
-        "Fibrous": 0, "Silky": 1, "Smooth": 2, "Scaly": 3
-    },
     "stalk-color-above-ring": {
         "Buff": 0, "Cinnamon": 1, "Red": 2, "Gray": 3, "Brown": 4,
         "Orange": 5, "Pink": 6, "White": 7, "Yellow": 8
@@ -38,9 +25,6 @@ encodings = {
     "stalk-color-below-ring": {
         "Buff": 0, "Cinnamon": 1, "Red": 2, "Gray": 3, "Brown": 4,
         "Orange": 5, "Pink": 6, "White": 7, "Yellow": 8
-    },
-    "ring-number": {
-        "None": 0, "One": 1, "Two": 2
     },
     "ring-type": {
         "Evanescent": 0, "Flaring": 1, "Large": 2, "None": 3, "Pendant": 4
@@ -61,9 +45,9 @@ st.markdown(
 )
 
 # Load models 
-gb_model = joblib.load(f'{path}Supervised/Gradient_Boosting.pkl')
+dt_model = joblib.load(f'{path}Supervised/Decision_Tree.pkl')
 
-model = gb_model
+model = dt_model
 
 
 # for user input 
