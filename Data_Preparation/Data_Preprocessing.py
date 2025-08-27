@@ -22,7 +22,7 @@ missing_values = ["null", "none", "None", "NONE"]
 
 # Replace them with NaN
 df.replace(missing_values, pd.NA, inplace=True)
-
+    
 # drop the row with the missing value
 df.dropna(inplace = True)
 print(df.describe())
