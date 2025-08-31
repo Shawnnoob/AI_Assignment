@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from sklearn.tree import plot_tree
 
 # Filepath
-path = "AI_Assignment/"
+path = "../"
 
 X_train = pd.read_csv(f"{path}input/X_train.csv", delimiter=',')
 X_test = pd.read_csv(f"{path}input/X_test.csv", delimiter=',')

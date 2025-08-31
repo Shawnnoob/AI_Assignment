@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 import joblib
 
-# Filepath
-path = "../"
+# Filepath (DO NOT CHANGE THIS FILEPATH)
+path = "/"
 
 # For encoding purpose
 encodings = {

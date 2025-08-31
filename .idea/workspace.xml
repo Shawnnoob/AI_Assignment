@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a76bbfc5-7fe3-4bd3-901e-9e26a1581a32" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Supervised/Decision_Trees.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised/Decision_Trees.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Supervised/Decision_Trees.py" beforeDir="false" afterPath="$PROJECT_DIR$/Supervised/Decision_Trees.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/model_results/decision_tree.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/model_results/decision_tree.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/overfitting/decision_tree_overfitting.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/overfitting/decision_tree_overfitting.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +80,7 @@
       <recent name="C:\Users\Public\AI_Assignment\input" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Gradient_Boosting">
+  <component name="RunManager" selected="Python.Decision_Trees">
     <configuration name="Decision_Trees" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AI_Assignment" />
       <option name="ENV_FILES" value="" />
@@ -188,9 +193,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Decision_Trees" />
         <item itemvalue="Python.Gradient_Boosting" />
         <item itemvalue="Python.Random_Forest" />
-        <item itemvalue="Python.Decision_Trees" />
         <item itemvalue="Python.app" />
         <item itemvalue="Python.KNN" />
       </list>
