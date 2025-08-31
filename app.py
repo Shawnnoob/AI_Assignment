@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 
 # Filepath
-path = "AI_Assignment/"
+path = "../"
 
 # For encoding purpose
 encodings = {
