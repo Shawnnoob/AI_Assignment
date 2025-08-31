@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 pd.set_option('display.max_columns', None)
 pd.set_option('future.no_silent_downcasting', True)
 
-path = "AI_Assignment/"
+path = "../"
 
 
 # Load the dataset
