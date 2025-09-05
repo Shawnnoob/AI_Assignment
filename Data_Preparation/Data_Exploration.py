@@ -36,7 +36,7 @@ for col in df.columns:
 
     plt.figure(figsize=(8, 5))
 
-    # Create cross-tab between feature and class
+    # Create cross-tabulation between feature and class
     ct = pd.crosstab(df[col], df[target_col])
 
     # Normalize by row to get percentages per feature value
@@ -62,45 +62,6 @@ for col in df.select_dtypes(include=["object"]).columns:
     df[col] = df[col].astype('category')
 
 
-# CHI-SQUARE TEST
-# Function to perform the Chi-Square test for categorical variables
-def chi_square_test(x, y):
-    # Create a contingency table (cross-tabulation) for the two categorical variables
-    contingency_table = pd.crosstab(x, y)
-
-    # Perform Chi-Square test
-    chi2, p, dof, expected = stats.chi2_contingency(contingency_table)
-
-    # Return the test results: Chi-Square value, p-value, degrees of freedom, and expected frequencies
-    return chi2, p, dof, expected
-
-
-# # Perform Chi-Square test for all pairs of categorical features
-# results = {}
-# cat_cols = df.select_dtypes(include=["category"]).columns
-#
-# for col1 in cat_cols:
-#     for col2 in cat_cols:
-#         if col1 != col2:
-#             chi2, p, dof, expected = chi_square_test(df[col1], df[col2])
-#             results[f"{col1} vs {col2}"] = {
-#                 "chi2": chi2,
-#                 "p-value": p,
-#                 "degrees of freedom": dof,
-#                 "expected": expected
-#             }
-#
-# # Displaying results where p-value < 0.05 (indicating a significant relationship)
-# significant_results = {key: value for key, value in results.items() if value["p-value"] < 0.05}
-#
-# # Print significant results
-# for test, result in significant_results.items():
-#     print(f"\nTest: {test}")
-#     print(f"Chi-Square Value: {result['chi2']}")
-#     print(f"P-value: {result['p-value']}")
-#     print(f"Degrees of Freedom: {result['degrees of freedom']}")
-
-
 # CORRELATION MATRIX
 # Convert categorical columns to category dtype
 for col in df.select_dtypes(include=["object"]).columns:
@@ -109,19 +70,20 @@ for col in df.select_dtypes(include=["object"]).columns:
 # Function to calculate Cramér's V for categorical variables
 def cramers_v(x, y):
     confusion_matrix = pd.crosstab(x, y)
-    chi2, p, dof, expected = stats.chi2_contingency(confusion_matrix)
+    chi2, p, dof, expected = stats.chi2_contingency(confusion_matrix) #Chi-square test
+    # Calculate Cramer's V statistic (chi-square
     return np.sqrt(chi2 / (confusion_matrix.sum().sum() * min(confusion_matrix.shape) - 1))
 
 # Calculate Cramér's V correlation for categorical features
-cat_cols = df.select_dtypes(include=["category"]).columns
-corr_matrix = pd.DataFrame(index=cat_cols, columns=cat_cols)
+cat_cols = df.select_dtypes(include=["category"]).columns # select only category cols
+corr_matrix = pd.DataFrame(index=cat_cols, columns=cat_cols) # builds DataFrame
 
-# Fill the correlation matrix with Cramér's V values
+# Fill the correlation matrix with Cramér's V values, loop through all pairs of cat cols
 for col1 in cat_cols:
     for col2 in cat_cols:
-        if col1 == col2:
+        if col1 == col2: # When comparing same category, fill in 1
             corr_matrix.loc[col1, col2] = 1.0
-        elif pd.isna(corr_matrix.loc[col1, col2]):
+        elif pd.isna(corr_matrix.loc[col1, col2]): # Calculate Cramer's V
             corr_matrix.loc[col1, col2] = cramers_v(df[col1], df[col2])
 
 # Plot the correlation matrix
